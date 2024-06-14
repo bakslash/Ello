@@ -52,9 +52,9 @@ const App = () => {
   return (
     <Container>
       <Box mt={5}>
-        <SearchBar onChange={handleSearchChange} />
+        <SearchBar onChange={handleSearchChange} books={data.books} />
         <Typography variant="h5" gutterBottom style={{ color: '#FABD33' }}>
-          All Books
+          {searchTerm ? "Search Results" : "All Books"}
         </Typography>
         <BookList books={currentBooks} onAdd={handleAddBook} />
         <Pagination

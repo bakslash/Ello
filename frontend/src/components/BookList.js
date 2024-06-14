@@ -25,11 +25,11 @@ const images = [
 ];
 
 const BookList = ({ books, onAdd }) => {
-  const [visibleBooks, setVisibleBooks] = useState(15); 
+  const [visibleBooks, setVisibleBooks] = useState(15);
   const totalBooks = books.length;
 
   const loadMore = () => {
-    setVisibleBooks(prev => prev + 10); 
+    setVisibleBooks(prev => prev + 10);
   };
 
   return (

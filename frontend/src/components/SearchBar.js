@@ -17,6 +17,7 @@ const SearchBar = ({ onChange, books }) => {
 
   const handleInputChange = (event, value) => {
     setSearchTerm(value);
+    onChange({ target: { value } });
   };
 
   const handleInputChangeTextField = (event) => {
@@ -24,14 +25,15 @@ const SearchBar = ({ onChange, books }) => {
     onChange(event);
   };
 
-  // check if books arr is defined and not empty before mapping
   const bookTitles = books ? books.map((book) => book.title) : [];
 
   return (
     <CenteredBox>
       <Autocomplete
         options={bookTitles}
+        sx={{ width: 400 }}
         freeSolo
+        value={searchTerm}
         onInputChange={handleInputChange}
         renderInput={(params) => (
           <StyledTextField
@@ -42,7 +44,7 @@ const SearchBar = ({ onChange, books }) => {
             onChange={handleInputChangeTextField}
             inputProps={{
               ...params.inputProps,
-              style: { fontSize: '1rem' }, // Adjust font size as needed
+              style: { fontSize: '1rem' },
             }}
           />
         )}
