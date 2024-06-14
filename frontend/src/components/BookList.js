@@ -29,7 +29,7 @@ const BookList = ({ books, onAdd }) => {
   const totalBooks = books.length;
 
   const loadMore = () => {
-    setVisibleBooks(prev => prev + 10);
+    setVisibleBooks((prev) => prev + 10);
   };
 
   return (
@@ -71,11 +71,7 @@ const BookList = ({ books, onAdd }) => {
       </Grid>
       {visibleBooks < totalBooks && (
         <Box mt={4} display="flex" justifyContent="center">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={loadMore}
-          >
+          <Button variant="contained" color="primary" onClick={loadMore}>
             Load More
           </Button>
         </Box>

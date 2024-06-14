@@ -51,8 +51,9 @@ const ReadingList = ({ books, onRemove }) => {
               <CardActions>
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: '#F76434', color: '#FFFFFF', fontSize: '0.75rem', width: '100%' }}
+                  sx={{ backgroundColor: '#FF6666', color: '#FFFFFF', fontSize: '0.75rem' }}
                   onClick={() => onRemove(book)}
+                  fullWidth
                 >
                   Remove
                 </Button>

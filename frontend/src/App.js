@@ -19,14 +19,14 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [readingList, setReadingList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 10; // Adjust as needed
+  const booksPerPage = 10;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography>Error :(</Typography>;
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    setCurrentPage(1); // Reset page when search term changes
+    setCurrentPage(1);
   };
 
   const handlePageChange = (event, value) => {
@@ -42,7 +42,9 @@ const App = () => {
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
 
   const handleAddBook = (book) => {
-    setReadingList([...readingList, book]);
+    if (!readingList.find((b) => b.title === book.title)) {
+      setReadingList([...readingList, book]);
+    }
   };
 
   const handleRemoveBook = (book) => {
@@ -53,8 +55,8 @@ const App = () => {
     <Container>
       <Box mt={5}>
         <SearchBar onChange={handleSearchChange} books={data.books} />
-        <Typography variant="h5" gutterBottom style={{ color: '#FABD33' }}>
-          {searchTerm ? "Search Results" : "All Books"}
+        <Typography variant="h5" gutterBottom style={{ color: '#FABD33', marginTop: '70px' }}>
+          {searchTerm ? 'Search Results' : 'All Books'}
         </Typography>
         <BookList books={currentBooks} onAdd={handleAddBook} />
         <Pagination

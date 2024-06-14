@@ -9,7 +9,7 @@ const CenteredBox = styled(Box)`
 `;
 
 const StyledTextField = styled(TextField)`
-  width: 80%; /* Adjust width as needed */
+  width: 80%;
 `;
 
 const SearchBar = ({ onChange, books }) => {
